@@ -27,12 +27,12 @@ class Block {
   }
 
   mineBlock(difficulty) {
-    while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")) {
+    while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
       this.nounce ++;
       this.hash = this.calculateHash();
     }
 
-    console.log("blocker mined: " + this.hash);
+    console.log('blocker mined: ' + this.hash);
   }
 }
 
@@ -46,7 +46,7 @@ class Blockchain {
   }
 
   createGenesisBlock() {
-    return new Block('01/01/2018', "Genesis Block", "");
+    return new Block('01/01/2018', 'Genesis Block', '');
   }
 
   getLatestBlock() {
@@ -57,7 +57,7 @@ class Blockchain {
     let block = new Block(Date.now(), this.pendingTransactions);
     block.mineBlock(this.difficulty);
 
-    console.log("Block successfully mined!");
+    console.log('Block successfully mined!');
     this.chain.push(block);
 
     this.pendingTransactions = [
