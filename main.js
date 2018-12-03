@@ -28,7 +28,7 @@ class Block {
 
   mineBlock(difficulty) {
     while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
-      this.nounce ++;
+      this.nounce++;
       this.hash = this.calculateHash();
     }
 
@@ -91,12 +91,12 @@ class Blockchain {
     for (let index = 0; index < this.chain.length; index++) {
       const currentBlock = this.chain[i];
       const previousBlock = this.chain[i - 1];
-      
-      if ( currentBlock.hash !== currentBlock.calculateHash() ) {
+
+      if (currentBlock.hash !== currentBlock.calculateHash()) {
         return false;
       }
 
-      if ( currentBlock.previousHash !== previousBlock.hash ) {
+      if (currentBlock.previousHash !== previousBlock.hash) {
         return false;
       }
     }
